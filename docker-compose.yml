@@ -7,4 +7,4 @@ services:
     container_name: kata_client
     restart: always
     ports:
-      - "6666:4874"
+      - "10666:4874"
