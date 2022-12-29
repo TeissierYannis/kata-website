@@ -30,4 +30,7 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           script: |
             cd /home/debian/www/kata_website
+            sudo docker stop kata_client
+            sudo docker rm kata_client
+            sudo rmi kata_client-app
             sudo docker compose up -d --build
