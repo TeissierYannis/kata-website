@@ -1,0 +1,10 @@
+# Docker-compose for react client
+version: '3.8'
+services:
+  # Node service (build from Dockerfile contained in . folder)
+  app:
+    build: .
+    container_name: kata_client
+    restart: always
+    ports:
+      - "6666:4874"
