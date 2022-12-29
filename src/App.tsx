@@ -1,26 +1,59 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SideSection from "./Components/SideSection";
+import CodeSection from "./Components/CodeSection";
+import OutputSection from "./Components/OutputSection";
+import Exercices from "./Data/Katas";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [output, setOutput] = React.useState("");
+    const [currentExercice, setCurrentExercice] = React.useState(Exercices[1]);
+
+    return (
+        <div className="App" style={{
+            width: "100%",
+            height: "100vh",
+        }}>
+            <header className="header_section"
+                    style={{
+                        width: "100%",
+                        height: "10%",
+                        background: "white",
+                        fontFamily: "monospace",
+                        fontSize: "50px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}>
+                <p className="title">Kata</p>
+            </header>
+            <div style={{
+                width: "100%",
+                height: "90%",
+                display: "flex",
+            }}>
+                <SideSection
+                    name={currentExercice.name}
+                    description={currentExercice.description}
+                    examples={currentExercice.mathematicalExample}
+                    setCurrentExercice={setCurrentExercice}
+                />
+                <div style={{
+                    width: "70%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                }}>
+                    <CodeSection
+                        tests={currentExercice.tests}
+                        baseCode={currentExercice.baseCode}
+                        setOutput={setOutput}
+                    />
+                    <OutputSection output={output}/>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
