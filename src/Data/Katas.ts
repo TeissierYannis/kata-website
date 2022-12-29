@@ -1,6 +1,4 @@
-import exp from "constants";
-
-type Exercice = {
+export type Exercice = {
     id: number
     name: string
     description: string,

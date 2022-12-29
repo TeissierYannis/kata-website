@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SideSection from "./Components/SideSection";
 import CodeSection from "./Components/CodeSection";
 import OutputSection from "./Components/OutputSection";
-import Exercices from "./Data/Katas";
+import Exercices, {Exercice} from "./Data/Katas";
 
 function App() {
 
     const [output, setOutput] = React.useState("");
-    const [currentExercice, setCurrentExercice] = React.useState(Exercices[1]);
+    const [currentExercice, setCurrentExercice] = React.useState<Exercice | null>(Exercices[0]);
+    const [isDisplayed, setIsDisplayed] = React.useState(true);
+
+    useEffect(() => {
+        setIsDisplayed(false);
+        setOutput("");
+        setTimeout(() => {
+            setIsDisplayed(true);
+        }, 1);
+    }, [currentExercice]);
 
     return (
         <div className="App" style={{
@@ -27,31 +36,35 @@ function App() {
                     }}>
                 <p className="title">Kata</p>
             </header>
-            <div style={{
-                width: "100%",
-                height: "90%",
-                display: "flex",
-            }}>
-                <SideSection
-                    name={currentExercice.name}
-                    description={currentExercice.description}
-                    examples={currentExercice.mathematicalExample}
-                    setCurrentExercice={setCurrentExercice}
-                />
-                <div style={{
-                    width: "70%",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                }}>
-                    <CodeSection
-                        tests={currentExercice.tests}
-                        baseCode={currentExercice.baseCode}
-                        setOutput={setOutput}
-                    />
-                    <OutputSection output={output}/>
-                </div>
-            </div>
+            {isDisplayed &&
+                (
+                    <div style={{
+                        width: "100%",
+                        height: "90%",
+                        display: "flex",
+                    }}>
+                        <SideSection
+                            name={currentExercice?.name ?? ""}
+                            description={currentExercice?.description ?? ""}
+                            examples={currentExercice?.mathematicalExample ?? []}
+                            setCurrentExercice={setCurrentExercice}
+                        />
+                        <div style={{
+                            width: "70%",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                        }}>
+                            <CodeSection
+                                tests={currentExercice?.tests ?? []}
+                                baseCode={currentExercice?.baseCode ?? ""}
+                                setOutput={setOutput}
+                            />
+                            <OutputSection output={output}/>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     );
 }
