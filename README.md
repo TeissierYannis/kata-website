@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+[![GoDoc](https://godoc.org/github.com/abhishekkr/goshield?status.svg)](https://go.dev/doc/)
+[![Go version](https://img.shields.io/badge/Go_version-18.2.0-blue.svg)]()
+[![Type](https://img.shields.io/badge/Training_Website-blue.svg)]()
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Table of Contents
 
-## Available Scripts
+1.  [Project explanation](#project-explanation)
+2. [Tree structure](#tree-structure)
+3. [Build](#build)
+4. [Run Local](#run-local)
+5. [Using docker to run the project](#using-docker-to-mock-a-network-of-nodes)
+   1. [Step 1 - Build docker image](#using-docker-to-mock-a-network-of-nodes-step1)
+   1. [Step 1 - Run the docker image](#using-docker-to-mock-a-network-of-nodes-step2)
 
-In the project directory, you can run:
+5. [Usage](#usage)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Project explanation <a id="project-explanation"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is a simple kata website to allow training algorithms directly on my personnal website.
 
-### `npm test`
+This website includes the following features:
+- [X] Few basics exercices
+- [X] Javascript langages
+- [X] Unit test dirctly on UI
+- [ ] More languages support
+- [ ] More exercices
+- [ ] TDD approch
+- [ ] Unit Test from code
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Tree structure <a id="tree-structure"></a>
 
-### `npm run build`
+```sh
+.
+├── README.md
+├── public
+│   ├── index.html
+│   ├── manifest.json
+│   ├── robots.txt
+├── src
+│   ├── App.tsx
+│   ├── index.css
+│   ├── Components
+│   ├──    ├── CodeSection.tsx
+│   ├──    ├── OutputSection.tsx
+│   ├──    ├── SideSection.tsx
+│   ├── Data
+│   ├──    ├── Katas.ts
+├── Dockerfile
+├── docker-compose.yml
+├── package.json
+├── tsconfig.json
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Build  <a id="build"></a>
+To build the executable file run the following command:
+```sh
+npm run build
+```
 
-### `npm run eject`
+# Run local  <a id="run-local"></a>
+To build the executable file run the following command:
+```sh
+npm run start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Using docker to run the projec <a id="using-docker-to-mock-a-network-of-nodes"></a>
+## Step 1 - Build docker image <a id="using-docker-to-mock-a-network-of-nodes-step2"></a>
+Build the docker images.
+```sh
+docker-compose build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Step 2 - Run docker containers <a id="using-docker-to-mock-a-network-of-nodes-step3"></a>
+Run the docker containers.
+```sh
+docker-compose up
+``
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
