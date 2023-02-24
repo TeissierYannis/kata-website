@@ -78,7 +78,7 @@ docker-compose build
 Run the docker containers.
 ```sh
 docker-compose up
-``
+```
 
 
 
