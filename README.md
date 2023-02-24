@@ -27,6 +27,7 @@ This website includes the following features:
 - [ ] More exercices
 - [ ] TDD approch
 - [ ] Unit Test from code
+- [ ] CD
 
 # Tree structure <a id="tree-structure"></a>
 
