@@ -1,6 +1,5 @@
-[![GoDoc](https://godoc.org/github.com/abhishekkr/goshield?status.svg)](https://go.dev/doc/)
-[![Go version](https://img.shields.io/badge/Go_version-18.2.0-blue.svg)]()
-[![Type](https://img.shields.io/badge/Training_Website-blue.svg)]()
+[![ReactDoc](https://img.shields.io/badge/React_Version-18.2.0-blue.svg)](https://fr.reactjs.org/docs/getting-started.html)
+[![Type](https://img.shields.io/badge/Training_Website-blue.svg)](#)
 
 # Table of Contents
 
